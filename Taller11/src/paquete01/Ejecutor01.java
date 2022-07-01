@@ -5,6 +5,10 @@
  */
 package paquete01;
 
+import java.util.ArrayList;
+import paquete02.Menu;
+import paquete02.MenuNiños;
+
 /**
  *
  * @author reroes
@@ -15,10 +19,23 @@ public class Ejecutor01 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+
+        ArrayList<Menu> listaArriendos = new ArrayList<>();
+        MenuNiños men1 = new MenuNiños("Niños 01", 2, 1, 4.5);
+
+        listaArriendos.add(arriendoComida);
+        listaArriendos.add(arriendoComida2);
+        listaArriendos.add(arriendoComercial);
+        listaArriendos.add(arriendoSesiones);
+
+        for (int i = 0; i < listaArriendos.size(); i++) {
+            listaArriendos.get(i).establecerArriendoMensual(); // se llama al 
+            // métodos abstracto
+            System.out.println(listaArriendos.get(i));
+            System.out.println();
+        }
     }
-    
-    
+
 }
 // lo que debe presentar
 /*
@@ -63,4 +80,4 @@ Subtotal: 30,1
 IVA: 10,0%
 Total a pagar: 33,110
 
-*/
+ */

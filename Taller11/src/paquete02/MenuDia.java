@@ -28,8 +28,8 @@ public class MenuDia extends Menu {
     }
 
     @Override
-    public void establecerValMenu() {
-        valMenu = valorPostre + valorBebida;
+    public void calularValMenu() {
+        valMenu = valInicial + valorPostre + valorBebida;
     }
 
     public double obtenerValorPostre() {
@@ -42,7 +42,7 @@ public class MenuDia extends Menu {
 
     @Override
     public String toString() {
-        String cadena = String.format("Nombre del Plato: %s\n"
+        String cadena = String.format("Menu del Dia:\nNombre del Plato: %s\n"
                 + "Valor inicial del menú: %.2f\n"
                 + "Valor de postre: %.2f\n"
                 + "Valor de bebida: %.2f\n"

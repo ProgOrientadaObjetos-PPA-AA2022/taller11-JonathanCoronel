@@ -23,7 +23,7 @@ public abstract class Menu {
         nomPlato = nompl;
     }
 
-    public abstract void establecerValMenu();
+    public abstract void calularValMenu();
 
     public void establecerValInicial(double valIn) {
         valInicial = valIn;
