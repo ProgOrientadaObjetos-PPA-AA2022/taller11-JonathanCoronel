@@ -8,6 +8,10 @@ package paquete01;
 import java.util.ArrayList;
 import paquete02.Menu;
 import paquete02.MenuNiños;
+import paquete02.MenuEconomico;
+import paquete02.MenuDia;
+import paquete02.MenuCarta;
+import paquete02.Cuenta;
 
 /**
  *
@@ -20,20 +24,28 @@ public class Ejecutor01 {
      */
     public static void main(String[] args) {
 
-        ArrayList<Menu> listaArriendos = new ArrayList<>();
-        MenuNiños men1 = new MenuNiños("Niños 01", 2, 1, 4.5);
+        ArrayList<Menu> listaMenus = new ArrayList<>();
 
-        listaArriendos.add(arriendoComida);
-        listaArriendos.add(arriendoComida2);
-        listaArriendos.add(arriendoComercial);
-        listaArriendos.add(arriendoSesiones);
+        MenuNiños men1 = new MenuNiños("Niños 01", 2, 1, 1.5);
+        MenuNiños men2 = new MenuNiños("Niños 02", 3, 1, 1.5);
+        MenuEconomico menec = new MenuEconomico("Econo 001", 4, 25);
+        MenuDia mend = new MenuDia("Dia 001", 5, 1, 1);
+        MenuCarta mec = new MenuCarta("Carta001", 6, 1.5, 2, 10);
 
-        for (int i = 0; i < listaArriendos.size(); i++) {
-            listaArriendos.get(i).establecerArriendoMensual(); // se llama al 
-            // métodos abstracto
-            System.out.println(listaArriendos.get(i));
-            System.out.println();
+        listaMenus.add(men1);
+        listaMenus.add(men2);
+        listaMenus.add(menec);
+        listaMenus.add(mend);
+        listaMenus.add(mec);
+        for (int i = 0; i < listaMenus.size(); i++) {
+            listaMenus.get(i).calularValMenu();
         }
+
+        Cuenta cuenta1 = new Cuenta("René Elizalde", listaMenus, 10);
+        cuenta1.calcularSubtotal();
+        cuenta1.calcularValCAncelarTotal();
+        System.out.printf("%s\n", cuenta1);
+
     }
 
 }
@@ -47,7 +59,7 @@ Menu del Día:
 	Valor helado: 1,00
 	Valor pastel: 1,50
 	Valor del Menú: 4,50
-
+        
 Menu del Día:
 	Plato: Niños 02
 	Valor Inicial: 3,00

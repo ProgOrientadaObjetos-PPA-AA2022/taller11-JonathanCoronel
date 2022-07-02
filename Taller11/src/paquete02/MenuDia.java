@@ -42,11 +42,11 @@ public class MenuDia extends Menu {
 
     @Override
     public String toString() {
-        String cadena = String.format("Menu del Dia:\nNombre del Plato: %s\n"
-                + "Valor inicial del menú: %.2f\n"
-                + "Valor de postre: %.2f\n"
-                + "Valor de bebida: %.2f\n"
-                + "Valor del menú: %.2f\n",
+        String cadena = String.format("Menu del Dia:\n\tPlato: %s\n"
+                + "\tValor inicial: %.2f\n"
+                + "\tValor postre: %.2f\n"
+                + "\tValor bebida: %.2f\n"
+                + "\tValor del menú: %.2f\n",
                 nomPlato,
                 valInicial,
                 valorPostre,

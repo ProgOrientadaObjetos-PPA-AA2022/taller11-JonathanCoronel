@@ -18,12 +18,12 @@ public class MenuEconomico extends Menu {
     }
 
     public void establecerDescuento(double des) {
-        descuento = (valInicial * descuento) / 100;
+        descuento = des;
     }
 
     @Override
     public void calularValMenu() {
-        valMenu = valInicial - descuento;
+        valMenu = valInicial - (valInicial * descuento) / 100;
     }
 
     public double obtenerDescuento() {
@@ -32,11 +32,10 @@ public class MenuEconomico extends Menu {
 
     @Override
     public String toString() {
-        String cadena = String.format("Menu Economico:\nNombre del Plato: %s\n"
-                + "Valor inicial del menú: %.2f\n"
-                + "Porcentaje de descuento, en referencia al valor inicial del "
-                + "menú: %.2f\n"
-                + "Valor del menú: %.2f\n",
+        String cadena = String.format("Menu Economico:\n\tPlato: %s\n"
+                + "\tValor inicial: %.2f\n"
+                + "\tPorcentaje descuento: %.2f\n"
+                + "\tValor del menú: %.2f\n",
                 nomPlato,
                 valInicial,
                 descuento,

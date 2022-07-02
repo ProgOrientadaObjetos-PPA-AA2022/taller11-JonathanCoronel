@@ -18,6 +18,12 @@ public class Cuenta {
     private double subtotal;
     private double iva;
 
+    public Cuenta(String nomCl, ArrayList<Menu> men, double iv) {
+        nomCliente = nomCl;
+        menus = men;
+        iva = iv;
+    }
+
     public void establecerNomCliente(String nomCli) {
         nomCliente = nomCli;
     }
@@ -26,11 +32,11 @@ public class Cuenta {
         menus = lista;
     }
 
-    public void establecerValCAncelarTotal() {
-        valCancelarTotal = (subtotal * iva) / 100;
+    public void calcularValCAncelarTotal() {
+        valCancelarTotal = subtotal + (subtotal * iva) / 100;
     }
 
-    public void establecerSubtotal() {
+    public void calcularSubtotal() {
         for (int i = 0; i < menus.size(); i++) {
             subtotal = subtotal + menus.get(i).valMenu;
         }
@@ -62,19 +68,18 @@ public class Cuenta {
 
     @Override
     public String toString() {
-        String cadena = String.format("Nombre del Cliente: %s\n"
-                + "Lista de Menus:\n",
-                nomCliente);
+        String cadena = String.format("Factura\nNombre del Cliente: %s\n",
+                 nomCliente);
         for (int i = 0; i < menus.size(); i++) {
             cadena = String.format("%s%s\n", cadena, menus.get(i));
         }
-        cadena = String.format("%s\nValor a cancelar total:%.2f\n"
-                + "Subtotal\n"
-                + "Iva: %.2f\n",
+        cadena = String.format("%sSubtotal: %.1f\n"
+                + "Iva: %.1f%%\n"
+                + "Valor a cancelar total: %.3f\n",
                 cadena,
-                valCancelarTotal,
                 subtotal,
-                iva);
+                iva,
+                valCancelarTotal);
         return cadena;
     }
 
